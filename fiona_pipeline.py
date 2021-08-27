@@ -128,24 +128,6 @@ png_dest = 'RM_SCRIPT_OUTPUT/PNGFILES'
 # loop through each frequency to set up arrays needed to make RM map
 for i in range(1,frequencies+1):
 
-
-    # # convert Q,U fitsfiles to CASA measurement sets
-    # FITS_to_MS('Q',i,fits_loc,casa_dest)
-    # FITS_to_MS('U',i,fits_loc,casa_dest)
-    #
-    # # provide filenames based on image stem
-    # filename_Q = casa_dest+"/"+stem+'Q'+str(i)+'.CLEAN.image'
-    # filename_U = casa_dest+"/"+stem+'U'+str(i)+'.CLEAN.image'
-    #
-    # # get info from image headers
-    # Freq = (imhead(imagename=filename_Q, mode='get',hdkey='crval3'))['value']
-    # Npix = (imhead(imagename=filename_Q,mode='get',hdkey='shape'))[1]
-    # Wavel = numpy.divide(constants.c,Freq)
-    #
-    # # convert Q and U maps to numpy arrays
-    # Q_array = MS_to_array(filename_Q,Npix)
-    # U_array = MS_to_array(filename_U,Npix)
-
     Freq,Npix,Q_array,U_array=fitsconverter(fits_loc,stem,i)
     Wavel = numpy.divide(constants.c,Freq)
 
